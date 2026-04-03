@@ -86,4 +86,9 @@ describe('checkPasswordStrength', () => {
         expect(result.missing).toContain('number');
     })
 
+    test('password avec uniquement des chiffres devrait être weak', () => {
+        const result = checkPasswordStrength('12345678');
+        expect(result.strength).toBe('weak'); // This will fail - actual is 'fair'
+    })
+
 });
